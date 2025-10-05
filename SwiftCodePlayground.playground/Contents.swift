@@ -53,3 +53,11 @@ func doAdditions(firstNum a:Int,secondNum b:Int) -> Int{
 }
 let results = doAdditions(firstNum: 7, secondNum: 10)
 print(results)
+
+//Hide any label
+func doAdds(_ a:Int , _ b:Int) -> Int{
+    var sum = a+b
+    return sum
+}
+let res = doAdds(10, 10)
+print(res)
