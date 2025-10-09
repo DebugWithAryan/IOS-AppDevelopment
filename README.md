@@ -8,6 +8,31 @@
 
 > **This is my journey towards iOS Development** - Learning Swift, building apps, and mastering SwiftUI one project at a time! 🚀
 
+---
+
+## ❓ Ready to Challenge Yourself? 
+
+Do you want to **test your knowledge** and **prepare for iOS interviews**?  
+I’ve compiled a curated **list of conceptual & logical questions** based on my projects, from **beginner to advanced**.
+
+> Click the glowing button below to dive into the **QUESTIONS.md** file and level up your skills! 🚀
+
+<div align="center">
+
+[![Open Questions](https://img.shields.io/badge/Open-QUESTIONS.md-brightgreen?style=for-the-badge&logo=github)](QUESTIONS.md)
+
+</div>
+
+---
+
+> **Tip:** These questions are perfect for:
+> - Swift & SwiftUI concepts review  
+> - Interview preparation  
+> - Practicing logic and problem-solving  
+
+Don’t just read—**try to solve them**! 💡  
+
+
 ## 👨‍💻 About This Repository
 
 Welcome to my iOS development learning repository! This repo documents my journey as I learn iOS development with Swift and SwiftUI. Here you'll find various projects ranging from simple UI layouts to interactive games and practical utilities.
