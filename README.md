@@ -367,7 +367,7 @@ Feel free to open an issue or reach out!
 
 - **GitHub:** [@DebugWithAryan](https://github.com/DebugWithAryan)
 - **Email:** aryanjaiswal.work@gmail.com
-- **Portfolio:** *Coming Soon*
+- **Portfolio:** [AryanJaiswalPortfolio](https://aryan-pi.vercel.app/)
 
 ## 💭 Reflections
 
