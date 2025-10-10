@@ -8,13 +8,38 @@
 
 > **This is my journey towards iOS Development** - Learning Swift, building apps, and mastering SwiftUI one project at a time! 🚀
 
+---
+
+## ❓ Ready to Challenge Yourself? 
+
+Do you want to **test your knowledge** and **prepare for iOS interviews**?  
+I’ve compiled a curated **list of conceptual & logical questions** based on my projects, from **beginner to advanced**.
+
+> Click the glowing button below to dive into the **QUESTIONS.md** file and level up your skills! 🚀
+
+<div align="center">
+
+[![Open Questions](https://img.shields.io/badge/Open-QUESTIONS.md-brightgreen?style=for-the-badge&logo=github)](QUESTIONS.md)
+
+</div>
+
+---
+
+> **Tip:** These questions are perfect for:
+> - Swift & SwiftUI concepts review  
+> - Interview preparation  
+> - Practicing logic and problem-solving  
+
+Don’t just read—**try to solve them**! 💡  
+
+
 ## 👨‍💻 About This Repository
 
 Welcome to my iOS development learning repository! This repo documents my journey as I learn iOS development with Swift and SwiftUI. Here you'll find various projects ranging from simple UI layouts to interactive games and practical utilities.
 
 **Started:** October 2024  
 **Current Status:** Actively Learning & Building  
-**Projects Completed:** 4 (and counting!)
+**Projects Completed:** 3 (and counting!)
 
 ## 📂 Repository Structure
 
@@ -24,7 +49,6 @@ IOS-AppDevelopment/
 ├── My First App/              # First SwiftUI app - Tourist card UI
 ├── War Card Game/             # Interactive card game with game logic
 ├── BMI Calculator/            # Health utility app with state management
-├── To-Do List/                # Task management app with data persistence
 ├── SwiftCodePlayground.playground/  # Swift fundamentals practice
 ├── README.md                  # This file
 └── .DS_Store
@@ -166,75 +190,14 @@ withAnimation(.spring()) {
 
 ---
 
-### 4. 📝 To-Do List App
-**Created:** October 10, 2025  
-**Tech Stack:** SwiftUI, UserDefaults, Codable, Data Persistence
-
-A fully functional task management app with data persistence. Tasks are saved between app launches using UserDefaults!
-
-**Skills Learned:**
-- ✅ **Identifiable Protocol** - Unique identification for list items
-- ✅ **Codable Protocol** - Encoding/decoding Swift objects to JSON
-- ✅ **UserDefaults** - Persistent data storage between app sessions
-- ✅ **JSONEncoder/JSONDecoder** - Converting objects to/from JSON
-- ✅ **List and ForEach** - Creating scrollable, dynamic lists
-- ✅ **onDelete modifier** - Swipe-to-delete functionality
-- ✅ **EditButton** - Built-in edit mode for lists
-- ✅ **Closure parameters** - Passing functions as callbacks
-- ✅ **Array manipulation** - firstIndex(where:), remove(atOffsets:)
-- ✅ **Optional try (try?)** - Safe error handling
-- ✅ **guard statements** - Early exit validation
-- ✅ **Ternary operators** - Concise conditional logic
-- ✅ **onAppear lifecycle** - Loading data when view appears
-- ✅ **Alert dialogs** - User feedback with alerts
-- ✅ **Toolbar customization** - Adding buttons to navigation bar
-- ✅ **View composition** - Creating reusable sub-views
-
-**Key Features:**
-- ✅ Add new tasks with input validation
-- ✅ Mark tasks as complete/incomplete with checkboxes
-- ✅ Swipe-to-delete tasks
-- ✅ Edit mode for batch operations
-- ✅ Data persistence with UserDefaults (tasks saved between launches)
-- ✅ Empty state UI when no tasks exist
-- ✅ Success alert when task is added
-- ✅ Visual feedback (strikethrough for completed tasks)
-- ✅ Clean, modern interface with grouped list style
-
-**Code Highlights:**
-```swift
-// Data Model with Protocols
-struct Task: Identifiable, Codable {
-    var id: UUID
-    var title: String
-    var isCompleted: Bool
-}
-
-// Data Persistence
-private func saveTasks() {
-    if let encoded = try? JSONEncoder().encode(tasks) {
-        UserDefaults.standard.set(encoded, forKey: "SavedTasks")
-    }
-}
-
-private func loadTasks() {
-    if let savedData = UserDefaults.standard.data(forKey: "SavedTasks") {
-        if let decodedTasks = try? JSONDecoder().decode([Task].self, from: savedData) {
-            tasks = decodedTasks
-        }
-    }
-}
-
-// Dynamic List with ForEach
-List {
-    ForEach(tasks) { task in
-        TaskRowView(task: task, onToggle: {
-            toggleTaskCompletion(task)
-        })
-    }
-    .onDelete(perform: deleteTasks)
-}
-```
+### 4. 📝 To-Do List App *(Coming Soon)*
+**Status:** Planning Phase  
+**Planned Features:**
+- Task creation and deletion
+- Task persistence with UserDefaults
+- Mark tasks as complete
+- Categories and filtering
+- Modern SwiftUI design
 
 ---
 
@@ -277,16 +240,9 @@ List {
 - ✅ Keyboard type customization
 - ✅ Mathematical calculations
 - ✅ Range patterns in switch statements
-- ✅ **Protocols (Identifiable, Codable)**
-- ✅ **UserDefaults for data persistence**
-- ✅ **List and ForEach for dynamic content**
-- ✅ **JSON encoding/decoding**
-- ✅ **Closures as parameters**
-- ✅ **Array functional methods**
-- ✅ **Lifecycle methods (onAppear)**
+- 🔄 UserDefaults (Upcoming)
+- 🔄 List and ForEach (Upcoming)
 - 🔄 MVVM Architecture (Upcoming)
-- 🔄 Core Data (Upcoming)
-- 🔄 Networking and APIs (Upcoming)
 
 ## 📚 Learning Resources
 
@@ -324,17 +280,13 @@ List {
 - [x] Add animations and transitions
 - [x] Build complex layouts
 
-### Phase 4: Data Persistence ✅ *(Completed)*
-- [x] Learn UserDefaults
-- [x] Implement data saving and loading
-- [x] Build To-Do List app
-- [x] Understand data persistence patterns
-- [x] Master Codable protocol
-- [x] JSON encoding and decoding
-- [x] Implement List and ForEach
-- [x] Add swipe-to-delete functionality
+### Phase 4: Data Persistence 🔄 *(In Progress)*
+- [ ] Learn UserDefaults
+- [ ] Implement data saving and loading
+- [ ] Build To-Do List app
+- [ ] Understand data persistence patterns
 
-### Phase 5: Architecture 🔄 *(Next Up)*
+### Phase 5: Architecture 📋 *(Upcoming)*
 - [ ] Learn MVVM pattern
 - [ ] Separate business logic from UI
 - [ ] Implement ObservableObject
@@ -343,32 +295,30 @@ List {
 ### Phase 6: Advanced Features 📋 *(Upcoming)*
 - [ ] Core Data for complex data
 - [ ] Networking and API calls
-- [ ] JSON parsing from APIs
+- [ ] JSON parsing
 - [ ] NavigationStack and routing
-- [ ] Async/await for asynchronous operations
 
 ## 📊 Progress Statistics
 
 | Metric | Count |
 |--------|-------|
-| **Projects Completed** | 4 |
-| **Days of Learning** | 7 |
-| **SwiftUI Views Mastered** | 20+ |
-| **Lines of Code Written** | 800+ |
-| **Concepts Learned** | 40+ |
-| **Hours Invested** | 23+ |
+| **Projects Completed** | 3 |
+| **Days of Learning** | 6 |
+| **SwiftUI Views Mastered** | 15+ |
+| **Lines of Code Written** | 500+ |
+| **Concepts Learned** | 30+ |
+| **Hours Invested** | 20+ |
 
 ## 🎓 Month-by-Month Progress
 
 ### October 2024
-**Focus:** SwiftUI Fundamentals, State Management & Data Persistence
+**Focus:** SwiftUI Fundamentals & State Management
 
 | Date | Project | Key Achievement |
 |------|---------|----------------|
 | Oct 4 | My First App | First SwiftUI app with custom layouts |
 | Oct 4 | War Card Game | Implemented game logic and state management |
 | Oct 9 | BMI Calculator | Advanced state management, custom components, animations |
-| Oct 10 | To-Do List | Data persistence with UserDefaults, List views, Codable protocol |
 
 **Skills This Month:**
 - SwiftUI layout system
@@ -377,11 +327,6 @@ List {
 - Animations
 - Input validation
 - Data modeling
-- **Data persistence (UserDefaults)**
-- **Protocols (Identifiable, Codable)**
-- **JSON encoding/decoding**
-- **List and ForEach**
-- **Closures and callbacks**
 
 ## 🛠️ Development Setup
 
@@ -412,12 +357,12 @@ List {
 
 ## 📋 Upcoming Projects
 
-- [ ] **Weather App** - API integration and JSON parsing from live weather data
-- [ ] **Quiz App** - Multiple choice questions with scoring system
-- [ ] **Expense Tracker** - Financial management with charts
-- [ ] **Recipe Book** - Browse and save recipes with images
-- [ ] **Habit Tracker** - Daily habit monitoring with streaks
-- [ ] **Notes App** - Rich text editor with categories
+- [ ] **To-Do List App** - Task management with persistence
+- [ ] **Weather App** - API integration and JSON parsing
+- [ ] **Quiz App** - Multiple choice questions with scoring
+- [ ] **Expense Tracker** - Financial management app
+- [ ] **Recipe Book** - Browse and save recipes
+- [ ] **Habit Tracker** - Daily habit monitoring
 
 ## 🐛 Known Issues
 
@@ -432,10 +377,6 @@ Currently no known issues! All apps are functional and tested.
 - 🎨 Implemented custom UI components
 - ⚡ Added animations and transitions
 - ✅ Implemented input validation
-- 💾 **Mastered data persistence with UserDefaults**
-- 📋 **Built complete task management system**
-- 🔄 **Implemented full CRUD operations (Create, Read, Update, Delete)**
-- 📦 **Learned protocols and data encoding**
 
 ## 🤝 Contributing
 
@@ -451,7 +392,7 @@ Feel free to open an issue or reach out!
 
 - **GitHub:** [@DebugWithAryan](https://github.com/DebugWithAryan)
 - **Email:** aryanjaiswal.work@gmail.com
-- **Portfolio:** *Coming Soon*
+- **Portfolio:** [AryanJaiswalPortfolio](https://aryan-pi.vercel.app/)
 
 ## 💭 Reflections
 
@@ -460,20 +401,15 @@ Each project has taught me something valuable:
 - **My First App** showed me how intuitive SwiftUI's declarative syntax is
 - **War Card Game** taught me how state management makes apps interactive
 - **BMI Calculator** demonstrated the power of component reusability and data modeling
-- **To-Do List** revealed how data persistence works and how to build production-ready apps
 
 ### Challenges Overcome
 - Understanding the difference between `@State` and `@Binding`
 - Debugging layout issues with nested stacks
 - Implementing proper input validation
 - Managing optional values safely
-- **Working with Codable protocol for JSON encoding/decoding**
-- **Understanding UserDefaults lifecycle and data storage**
-- **Implementing swipe-to-delete functionality**
-- **Managing array indices safely during deletions**
 
 ### What's Next
-I'm excited to explore networking and API integration to build a Weather App that fetches real-time data! After that, I'll dive deeper into Core Data for managing more complex data structures.
+I'm excited to dive into data persistence and build my To-Do List app. After that, I'll explore networking and API integration to build real-world apps!
 
 ## 📄 License
 
@@ -494,7 +430,7 @@ This project is licensed under the MIT License - feel free to use any code for y
 
 *Let's learn together!*
 
-**Last Updated:** October 10, 2024
+**Last Updated:** October 9, 2024
 
 Made with ❤️ and lots of ☕ by [Aryan Jaiswal](https://github.com/DebugWithAryan)
 
