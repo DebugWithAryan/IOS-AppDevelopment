@@ -13,7 +13,7 @@
 ## ❓ Ready to Challenge Yourself? 
 
 Do you want to **test your knowledge** and **prepare for iOS interviews**?  
-I’ve compiled a curated **list of conceptual & logical questions** based on my projects, from **beginner to advanced**.
+I've compiled a curated **list of conceptual & logical questions** based on my projects, from **beginner to advanced**.
 
 > Click the glowing button below to dive into the **QUESTIONS.md** file and level up your skills! 🚀
 
@@ -30,7 +30,7 @@ I’ve compiled a curated **list of conceptual & logical questions** based on my
 > - Interview preparation  
 > - Practicing logic and problem-solving  
 
-Don’t just read—**try to solve them**! 💡  
+Don't just read—**try to solve them**! 💡  
 
 
 ## 👨‍💻 About This Repository
@@ -39,7 +39,7 @@ Welcome to my iOS development learning repository! This repo documents my journe
 
 **Started:** October 2024  
 **Current Status:** Actively Learning & Building  
-**Projects Completed:** 3 (and counting!)
+**Projects Completed:** 4 (and counting!)
 
 ## 📂 Repository Structure
 
@@ -49,6 +49,7 @@ IOS-AppDevelopment/
 ├── My First App/              # First SwiftUI app - Tourist card UI
 ├── War Card Game/             # Interactive card game with game logic
 ├── BMI Calculator/            # Health utility app with state management
+├── To-Do List/                # Task management app with data persistence
 ├── SwiftCodePlayground.playground/  # Swift fundamentals practice
 ├── README.md                  # This file
 └── .DS_Store
@@ -190,14 +191,90 @@ withAnimation(.spring()) {
 
 ---
 
-### 4. 📝 To-Do List App *(Coming Soon)*
+### 4. ✅ To-Do List App
+**Created:** October 10, 2025  
+**Tech Stack:** SwiftUI, UserDefaults, Data Persistence, List Management
+
+A fully functional task management app with data persistence! Add, complete, and delete tasks that persist between app launches.
+
+**Skills Learned:**
+- ✅ **Protocols:** `Identifiable`, `Codable` for model conformance
+- ✅ **UUID:** Unique identifier generation for list items
+- ✅ **UserDefaults:** Key-value storage for data persistence
+- ✅ **JSON Encoding/Decoding:** Converting objects to/from JSON
+- ✅ **List and ForEach:** Dynamic list rendering with collections
+- ✅ **onDelete modifier:** Swipe-to-delete gesture handling
+- ✅ **EditButton:** Built-in list editing mode
+- ✅ **Closures:** Function parameters for callbacks
+- ✅ **Private functions:** Encapsulation and code organization
+- ✅ **guard statements:** Early exit patterns for cleaner code
+- ✅ **Optional chaining:** Safe unwrapping with `if let`
+- ✅ **Array methods:** `firstIndex(where:)`, `remove(atOffsets:)`
+- ✅ **Lifecycle methods:** `.onAppear()` for initialization
+- ✅ **Toolbar customization:** Adding navigation bar items
+- ✅ **Alert dialogs:** User feedback with `.alert()`
+- ✅ **View composition:** Breaking UI into reusable components
+- ✅ **Ternary operators:** Conditional UI rendering
+- ✅ **ButtonStyle:** Customizing button interaction
+
+**Key Features:**
+- 📝 Add new tasks with TextField input
+- ✓ Mark tasks as complete/incomplete with checkbox
+- 🗑️ Swipe-to-delete functionality
+- 💾 Persistent storage using UserDefaults
+- 🎨 Empty state with helpful message
+- ✏️ Edit mode for managing multiple tasks
+- 🔔 Success alert on task addition
+- 🎯 Disabled button when input is empty
+- 📱 Clean, native iOS interface
+- ⚡ Real-time data synchronization
+
+**Code Highlights:**
+```swift
+// Data model with protocols
+struct Task: Identifiable, Codable {
+    var id: UUID
+    var title: String
+    var isCompleted: Bool
+}
+
+// Saving with UserDefaults and JSON
+private func saveTasks() {
+    if let encoded = try? JSONEncoder().encode(tasks) {
+        UserDefaults.standard.set(encoded, forKey: "SavedTasks")
+    }
+}
+
+// Loading persisted data
+private func loadTasks() {
+    if let savedData = UserDefaults.standard.data(forKey: "SavedTasks") {
+        if let decodedTasks = try? JSONDecoder().decode([Task].self, from: savedData) {
+            tasks = decodedTasks
+        }
+    }
+}
+
+// Dynamic list with delete support
+List {
+    ForEach(tasks) { task in
+        TaskRowView(task: task, onToggle: {
+            toggleTaskCompletion(task)
+        })
+    }
+    .onDelete(perform: deleteTasks)
+}
+```
+
+---
+
+### 5. 🌤️ Weather App *(Coming Soon)*
 **Status:** Planning Phase  
 **Planned Features:**
-- Task creation and deletion
-- Task persistence with UserDefaults
-- Mark tasks as complete
-- Categories and filtering
-- Modern SwiftUI design
+- API integration with weather service
+- JSON parsing and data handling
+- Location-based weather
+- 5-day forecast display
+- Modern animated UI
 
 ---
 
@@ -215,21 +292,38 @@ withAnimation(.spring()) {
 - ✅ String Interpolation and Formatting
 - ✅ Random Number Generation
 - ✅ Type Conversion
+- ✅ Protocols (Identifiable, Codable)
+- ✅ UUID Generation
+- ✅ Closures and Higher-Order Functions
+- ✅ Guard Statements
+- ✅ Optional Chaining
+- ✅ Array Methods (firstIndex, remove)
+- ✅ Ternary Operators
 
 ### SwiftUI Components
 - ✅ **Layout:** VStack, HStack, ZStack, Spacer, Divider
-- ✅ **Views:** Text, Image, Button, TextField, Picker
+- ✅ **Views:** Text, Image, Button, TextField, Picker, List
 - ✅ **Styling:** `.padding()`, `.foregroundColor()`, `.font()`, `.background()`
-- ✅ **Visual Effects:** `.cornerRadius()`, `.shadow()`, `.opacity()`
-- ✅ **Modifiers:** `.resizable()`, `.aspectRatio()`, `.frame()`
+- ✅ **Visual Effects:** `.cornerRadius()`, `.shadow()`, `.opacity()`, `.strikethrough()`
+- ✅ **Modifiers:** `.resizable()`, `.aspectRatio()`, `.frame()`, `.disabled()`
 - ✅ **System Assets:** SF Symbols
-- ✅ **Navigation:** NavigationView, ScrollView
+- ✅ **Navigation:** NavigationView, Toolbar, EditButton
+- ✅ **List Features:** ForEach, onDelete, listStyle
+- ✅ **Alerts:** `.alert()` modifier
+- ✅ **Button Styles:** PlainButtonStyle, custom styles
 
 ### State Management
 - ✅ `@State` - Managing local state
 - ✅ `@Binding` - Two-way data binding between views
 - ✅ State mutations and UI updates
 - ✅ Conditional rendering based on state
+
+### Data Persistence
+- ✅ **UserDefaults:** Key-value storage system
+- ✅ **JSON Encoding:** Converting Swift objects to JSON
+- ✅ **JSON Decoding:** Parsing JSON back to objects
+- ✅ **Data Lifecycle:** Loading on appear, saving on changes
+- ✅ **Error Handling:** Optional try with `try?`
 
 ### Advanced Concepts
 - ✅ Custom reusable components
@@ -240,9 +334,13 @@ withAnimation(.spring()) {
 - ✅ Keyboard type customization
 - ✅ Mathematical calculations
 - ✅ Range patterns in switch statements
-- 🔄 UserDefaults (Upcoming)
-- 🔄 List and ForEach (Upcoming)
+- ✅ List management and editing
+- ✅ Gesture handling (swipe-to-delete)
+- ✅ Lifecycle methods (onAppear)
+- ✅ Private function encapsulation
+- 🔄 Core Data (Upcoming)
 - 🔄 MVVM Architecture (Upcoming)
+- 🔄 Networking & APIs (Upcoming)
 
 ## 📚 Learning Resources
 
@@ -280,11 +378,13 @@ withAnimation(.spring()) {
 - [x] Add animations and transitions
 - [x] Build complex layouts
 
-### Phase 4: Data Persistence 🔄 *(In Progress)*
-- [ ] Learn UserDefaults
-- [ ] Implement data saving and loading
-- [ ] Build To-Do List app
-- [ ] Understand data persistence patterns
+### Phase 4: Data Persistence ✅ *(Completed)*
+- [x] Learn UserDefaults
+- [x] Implement data saving and loading
+- [x] Build To-Do List app
+- [x] Understand data persistence patterns
+- [x] Master JSON encoding/decoding
+- [x] Work with List and ForEach
 
 ### Phase 5: Architecture 📋 *(Upcoming)*
 - [ ] Learn MVVM pattern
@@ -295,30 +395,32 @@ withAnimation(.spring()) {
 ### Phase 6: Advanced Features 📋 *(Upcoming)*
 - [ ] Core Data for complex data
 - [ ] Networking and API calls
-- [ ] JSON parsing
+- [ ] JSON parsing from APIs
 - [ ] NavigationStack and routing
+- [ ] Async/await patterns
 
 ## 📊 Progress Statistics
 
 | Metric | Count |
 |--------|-------|
-| **Projects Completed** | 3 |
-| **Days of Learning** | 6 |
-| **SwiftUI Views Mastered** | 15+ |
-| **Lines of Code Written** | 500+ |
-| **Concepts Learned** | 30+ |
-| **Hours Invested** | 20+ |
+| **Projects Completed** | 4 |
+| **Days of Learning** | 7 |
+| **SwiftUI Views Mastered** | 20+ |
+| **Lines of Code Written** | 800+ |
+| **Concepts Learned** | 40+ |
+| **Hours Invested** | 25+ |
 
 ## 🎓 Month-by-Month Progress
 
 ### October 2024
-**Focus:** SwiftUI Fundamentals & State Management
+**Focus:** SwiftUI Fundamentals, State Management & Data Persistence
 
 | Date | Project | Key Achievement |
 |------|---------|----------------|
 | Oct 4 | My First App | First SwiftUI app with custom layouts |
 | Oct 4 | War Card Game | Implemented game logic and state management |
 | Oct 9 | BMI Calculator | Advanced state management, custom components, animations |
+| Oct 10 | To-Do List | Data persistence with UserDefaults, List management |
 
 **Skills This Month:**
 - SwiftUI layout system
@@ -327,6 +429,10 @@ withAnimation(.spring()) {
 - Animations
 - Input validation
 - Data modeling
+- UserDefaults persistence
+- JSON encoding/decoding
+- List and ForEach
+- Gesture handling
 
 ## 🛠️ Development Setup
 
@@ -346,7 +452,7 @@ withAnimation(.spring()) {
 
 2. **Open a project**
    ```bash
-   cd "BMI Calculator"
+   cd "To-Do List"
    open *.xcodeproj
    ```
 
@@ -357,12 +463,12 @@ withAnimation(.spring()) {
 
 ## 📋 Upcoming Projects
 
-- [ ] **To-Do List App** - Task management with persistence
 - [ ] **Weather App** - API integration and JSON parsing
 - [ ] **Quiz App** - Multiple choice questions with scoring
 - [ ] **Expense Tracker** - Financial management app
 - [ ] **Recipe Book** - Browse and save recipes
 - [ ] **Habit Tracker** - Daily habit monitoring
+- [ ] **Notes App** - Rich text editing with Core Data
 
 ## 🐛 Known Issues
 
@@ -377,6 +483,9 @@ Currently no known issues! All apps are functional and tested.
 - 🎨 Implemented custom UI components
 - ⚡ Added animations and transitions
 - ✅ Implemented input validation
+- 💾 Achieved data persistence with UserDefaults
+- 📝 Built complete CRUD functionality
+- 🔄 Mastered List management
 
 ## 🤝 Contributing
 
@@ -401,15 +510,19 @@ Each project has taught me something valuable:
 - **My First App** showed me how intuitive SwiftUI's declarative syntax is
 - **War Card Game** taught me how state management makes apps interactive
 - **BMI Calculator** demonstrated the power of component reusability and data modeling
+- **To-Do List** revealed the importance of data persistence and practical app architecture
 
 ### Challenges Overcome
 - Understanding the difference between `@State` and `@Binding`
 - Debugging layout issues with nested stacks
 - Implementing proper input validation
 - Managing optional values safely
+- Working with JSON encoding/decoding
+- Implementing swipe-to-delete functionality
+- Managing app lifecycle and data persistence
 
 ### What's Next
-I'm excited to dive into data persistence and build my To-Do List app. After that, I'll explore networking and API integration to build real-world apps!
+I'm excited to dive into networking and API integration! Building a Weather App will teach me how to fetch real-world data and handle asynchronous operations. After that, I'll explore Core Data for more complex data management and eventually move toward MVVM architecture.
 
 ## 📄 License
 
@@ -430,7 +543,7 @@ This project is licensed under the MIT License - feel free to use any code for y
 
 *Let's learn together!*
 
-**Last Updated:** October 9, 2024
+**Last Updated:** October 10, 2024
 
 Made with ❤️ and lots of ☕ by [Aryan Jaiswal](https://github.com/DebugWithAryan)
 
